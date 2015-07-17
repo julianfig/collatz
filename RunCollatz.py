@@ -21,7 +21,7 @@ from Collatz import collatz_solve
 if __name__ == "__main__" :
     collatz_solve(sys.stdin, sys.stdout)
 
-"""
+
 % cat RunCollatz.in
 1 10
 100 200
@@ -44,4 +44,4 @@ if __name__ == "__main__" :
 
 % pydoc3 -w Collatz
 # That creates the file Collatz.html
-"""
+
