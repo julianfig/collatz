@@ -1,0 +1,25 @@
+clean:
+	rm -f  .coverage
+	rm -f  *.pyc
+	rm -f  RunCollatz.out
+	rm -f  TestCollatz.out
+	rm -rf __pycache__
+
+sync:
+	make clean
+	@echo `pwd`
+	@rsync -r -t -u -v --delete \
+    --include "*.in"            \
+    --include "*.py"            \
+    --include "makefile"        \
+    --exclude "*"               \
+    . downing@$(CS):cs/projects/python/collatz/
+
+test: RunCollatz.out TestCollatz.out
+
+RunCollatz.out: RunCollatz.py
+	./RunCollatz.py < RunCollatz.in > RunCollatz.out
+
+TestCollatz.out: TestCollatz.py
+	coverage3 run    --branch TestCollatz.py >  TestCollatz.out 2>&1
+	coverage3 report -m                      >> TestCollatz.out
