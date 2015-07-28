@@ -21,8 +21,7 @@ from Collatz import collatz_solve
 if __name__ == "__main__" :
     collatz_solve(sys.stdin, sys.stdout)
 
-
-% cat RunCollatz.in
+cat RunCollatz.in
 1 10
 100 200
 201 210
@@ -34,7 +33,7 @@ if __name__ == "__main__" :
 
 
 
-% cat RunCollatz.out
+cat RunCollatz.out
 1 10 1
 100 200 1
 201 210 1
